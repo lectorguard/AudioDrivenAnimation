@@ -51,6 +51,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 - First run FirstRunSadTalker.ps1 by clicking right and selecting run with powershell
 	- This will automatically install all dependencies using scoop and pip for the model
 	- The model can still work even if errors occur
+ 	- Output of the first run will be placed in `Temp` folder 
 - Second run SecondRunStyleTransfer.ps1 by clicking right and selecting run with powershell
 	- This will automatically install all dependencies using scoop and pip for the model
 	- The model can still work even if errors occur
