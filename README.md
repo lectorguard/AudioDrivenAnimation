@@ -66,3 +66,7 @@ Remove all python versions from the environement variable paths. Use scoop inste
 ## Scoop commands fail with internal exception
 
 Type in the last command again by hand into powershell and try multiple times. At some point it installs
+
+## Download of checkpoints/weights aborts with error
+
+Install the model checkpoints by hand (see submodules). Move the files in the correct folder indicated in the error message.
