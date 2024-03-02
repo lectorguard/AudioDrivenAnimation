@@ -60,3 +60,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ## Wrong Python version is used
 
 Remove all python versions from the environement variable paths. Use scoop instead for all your versions of python, it is better anyway.
+
+## Scoop commands fail with internal exception
+
+Type in the last command again by hand into powershell and try multiple times. At some point it installs
