@@ -37,6 +37,12 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 - [Windows Subsystem for Linux (WSL, Ubuntu)](https://www.microsoft.com/store/productId/9PN20MSR04DW?ocid=pdpshare)
 	- Only for downloading checkpoints, can be also done by hand check submodules
 
+- Clone recursive
+- 
+```
+git clone --recursive https://github.com/lectorguard/AudioDrivenAnimation.git
+```
+
 # Running the model
 
 ## Prepare data
