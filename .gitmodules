@@ -1,0 +1,6 @@
+[submodule "SadTalker"]
+	path = SadTalker
+	url = https://github.com/OpenTalker/SadTalker.git
+[submodule "style-transfer-video-processor"]
+	path = style-transfer-video-processor
+	url = https://github.com/westgarthb/style-transfer-video-processor.git
