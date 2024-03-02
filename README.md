@@ -38,7 +38,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 	- Only for downloading checkpoints, can be also done by hand check submodules
 
 - Clone recursive
-- 
+
 ```
 git clone --recursive https://github.com/lectorguard/AudioDrivenAnimation.git
 ```
