@@ -2,7 +2,7 @@ scoop bucket add versions
 scoop install versions/python38
 scoop reset python38
 
-scoop install ffmpeg
+scoop install main/ffmpeg
 
 cd SadTalker
 # Check if the folder named "checkpoints" does not exist in the current directory
