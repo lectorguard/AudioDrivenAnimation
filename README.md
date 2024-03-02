@@ -62,3 +62,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 Remove all python versions from the environement variable paths. Use scoop instead for all your versions of python, it is better anyway.
 
 ## https://discuss.pytorch.org/t/filenotfounderror-could-not-find-module-c10-dll/88422
+
+## Scoop commands fail with internal exception
+
+Type in the last command again by hand into powershell and try multiple times. At some point it installs
