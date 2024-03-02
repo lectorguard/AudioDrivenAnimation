@@ -60,3 +60,5 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ## Wrong Python version is used
 
 Remove all python versions from the environement variable paths. Use scoop instead for all your versions of python, it is better anyway.
+
+## https://discuss.pytorch.org/t/filenotfounderror-could-not-find-module-c10-dll/88422
