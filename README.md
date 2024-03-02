@@ -21,9 +21,7 @@ Multiple Style Images
 Final Generated Video
 ```
 
-<video width="320" height="240" controls>
-  <source src="Result/result_LimpBizkit.mp4" type="video/mp4">
-</video>
+[![Result](https://img.youtube.com/vi/LsmtZh3U_YY/0.jpg)](https://www.youtube.com/watch?v=LsmtZh3U_YY)
 
 
 # Prerequisites
