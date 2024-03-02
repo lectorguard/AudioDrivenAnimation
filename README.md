@@ -27,13 +27,15 @@ Final Generated Video
 # Prerequisites
 
 - [Scoop Command Line Installer](https://scoop.sh/)
-- [Windows Subsystem for Linux (WSL, Ubuntu)](https://www.microsoft.com/store/productId/9PN20MSR04DW?ocid=pdpshare)
 
 ```
 // Powershell Installation
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
+
+- [Windows Subsystem for Linux (WSL, Ubuntu)](https://www.microsoft.com/store/productId/9PN20MSR04DW?ocid=pdpshare)
+
 # Running the model
 
 ## Prepare data
