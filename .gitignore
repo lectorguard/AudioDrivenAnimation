@@ -1,7 +1,8 @@
 Data/*
 Result/*
-Temp/*
+input_videos/*
 !**/.empty
 !Data/LimpBizkit.mp3
 !Data/LimpBizkit.png
 !Result/result_LimpBizkit.mp4
+!input_videos/spotify_video_downloader.py

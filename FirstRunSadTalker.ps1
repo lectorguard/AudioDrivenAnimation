@@ -18,6 +18,7 @@ pip install -r requirements.txt
 
 # Set the path to the folder containing the PNG files
 $folderPath = "..\Data\"
+$outputFolder = "input_videos"
 
 # Get a list of PNG files in the folder
 $pngFiles = Get-ChildItem -Path $folderPath -Filter *.png -File
@@ -29,7 +30,7 @@ foreach ($file in $pngFiles) {
 	# Full image
     #python inference.py --driven_audio $folderPath$baseName.mp3 `
     #                --source_image $folderPath$baseName.png `
-    #                --result_dir ..\Temp `
+    #                --result_dir ..\$outputFolder `
     #                --still `
     #                --preprocess full `
     #                --enhancer gfpgan 
@@ -37,15 +38,15 @@ foreach ($file in $pngFiles) {
 	#portrait mode
 	python inference.py --driven_audio $folderPath$baseName.mp3 `
                     --source_image $folderPath$baseName.png `
-                    --result_dir ..\Temp `
+                    --result_dir ..\$outputFolder `
                     --enhancer gfpgan 
 	
 	# Rename generated file with base name
-	$files = Get-ChildItem -Path ..\Temp -File
+	$files = Get-ChildItem -Path ..\$outputFolder -File
 	$sortedFiles = $files | Sort-Object -Property CreationTime -Descending
 	$lastFile = $sortedFiles[0].FullName
 	Write-Host "Rename file old $lastFile new $baseName.mp4"
-	Move-Item -Path $lastFile -Destination "..\Temp\$baseName.mp4" -Force
+	Move-Item -Path $lastFile -Destination "..\$outputFolder\$baseName.mp4" -Force
 }
 
 Pause
