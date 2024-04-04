@@ -29,11 +29,21 @@ def download_matching_youtube_vids():
         }      
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             result_info = ydl.extract_info(query, download=False)
-            # Sort the videos by view count
-            sorted_results = sorted(result_info['entries'], key=lambda x: int(x['view_count']), reverse=True)
-            # Download the highest viewed video from the sorted list
-            highest_viewed_video = sorted_results[0]
-            ydl.download([highest_viewed_video['webpage_url']])
+            if 'entries' in result_info and len(result_info['entries']) > 0:
+                # Check if any video title contains a portion of the found query title
+                song_name = query.split("-")[-1].strip().lower()
+                print('Song name ' + song_name)
+                contains_title = [entry for entry in result_info['entries'] if song_name in entry['title'].lower()]
+                contains_title_and_video = [entry for entry in result_info['entries'] if song_name in entry['title'].lower() and 'video' in entry['title'].lower()]
+                contains_title_and_live = [entry for entry in result_info['entries'] if song_name in entry['title'].lower() and 'live' in entry['title'].lower()]
+                queries = [contains_title_and_video, contains_title_and_live, contains_title, result_info['entries']]
+                for elem in queries:
+                    if elem:
+                        sorted_results = sorted(elem, key=lambda x: int(x['view_count']), reverse=True)
+                        highest_viewed_video = sorted_results[0]
+                        print('Download title' + highest_viewed_video['title'])
+                        ydl.download([highest_viewed_video['webpage_url']])
+                        break
     os.chdir('..')
 
 def download_spotify_playlist(url):
@@ -68,12 +78,9 @@ def merge_audio_with_video():
     
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python download_video.py <URL> <output_path>")
-        sys.exit(1)
-
-    url = sys.argv[1]
-    download_spotify_playlist(url)
+    if len(sys.argv) == 2:
+        url = sys.argv[1]
+        download_spotify_playlist(url)
     download_matching_youtube_vids()
     merge_audio_with_video()
     
