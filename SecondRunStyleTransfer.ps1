@@ -9,9 +9,20 @@ wsl pip3 install tensorflow[and-cuda]
 #Apply model to app temporary files
 $input_folder = "input_videos"
 
+# Get the list of JPG files in the Styles folder
+$fileList = Get-ChildItem -Path "..\Styles" -Filter "*.JPG"
+
+# Loop through each file and rename it with the index
+for ($i = 0; $i -lt $fileList.Count; $i++) {
+    $newName = "{0:D2}.JPG" -f ($i + 1)
+    $fileList[$i] | Rename-Item -NewName $newName -Force
+}
+
+
+
 # Get a list of PNG files in the folder
 $mp4Files = Get-ChildItem -Path "..\$input_folder" -Filter *.mp4 -File
-$styles = Get-ChildItem -Path ..\Styles -Filter *.png -File
+$styles = Get-ChildItem -Path ..\Styles -Filter *.JPG -File
 foreach ($file in $mp4Files) {
 	$baseName = $file.baseName
 	
@@ -51,7 +62,7 @@ class Config:
     OUTPUT_FRAME_PATH = f'{OUTPUT_FRAME_DIRECTORY}/{OUTPUT_FRAME_FILE}'
 
     GHOST_FRAME_TRANSPARENCY = 0.1
-    PRESERVE_COLORS = False
+    PRESERVE_COLORS = True
     TENSORFLOW_CACHE_DIRECTORY = f'{ROOT_PATH}/tensorflow_cache'
     TENSORFLOW_HUB_HANDLE = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
 "@
