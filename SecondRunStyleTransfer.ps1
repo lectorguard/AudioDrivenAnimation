@@ -28,7 +28,7 @@ foreach ($file in $mp4Files) {
 	
 	$sequence = 0..($styles.Count-1)
 	$shuffledSequence = $sequence | Get-Random -Count $sequence.Count
-	$shuffledSequence = $shuffledSequence[0..(($shuffledSequence.Count-1)/2)]
+	$shuffledSequence = $shuffledSequence[0..(($shuffledSequence.Count-1)/3)]
 	$finalSequence = $shuffledSequence -join ','
 
 	
